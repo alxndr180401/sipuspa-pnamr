@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIPUSPA</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Menghubungkan dengan styles.css -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./images/background.jpg'); /* Pastikan path ini sesuai */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Mengisi seluruh tinggi viewport */
+        }
+
+        .container {
+            background-color: rgba(0, 128, 0, 0.7); /* Warna hijau transparan */
+            width: 100%;
+            max-width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold;
+            width: 300px;
+			height: 45px; /* Menetapkan tinggi yang sama untuk semua tombol */
+        }
+
+        /* Tombol Status Putusan (Tamu) */
+        .status-button {
+            background-color: white; /* Warna tombol putih */
+            color: #006400; /* Tulisan hinau (hijau gelap) */
+        }
+
+        .status-button:hover {
+            background-color: #f0f0f0; /* Efek hover */
+        }
+
+        /* Tombol Permohonan Salinan Putusan (Operator) */
+        .salinan-button {
+            background-color: orange; /* Warna tombol oranye */
+            color: white; /* Tulisan putih */
+        }
+
+        .salinan-button:hover {
+            background-color: #ffa500; /* Efek hover oranye gelap */
+        }
+
+        /* Tombol Pengelola */
+        .pengelola-button {
+            background-color: #ff4500; /* Warna merah terang */
+            color: white; /* Tulisan putih */
+        }
+
+        .pengelola-button:hover {
+            background-color: #e03e00; /* Efek hover merah lebih gelap */
+        }
+
+        /* Tombol Panduan */
+        .panduan-button {
+            background-color: #333; /* Warna tombol abu-abu gelap */
+            color: white; /* Tulisan putih */
+        }
+
+        .panduan-button:hover {
+            background-color: #444; /* Efek hover abu-abu lebih gelap */
+        }
+		
+		/* Footer */
+        footer {
+            margin-top: 20px;
+            padding: 10px;            
+            width: 100%;
+            color: white; /* Warna teks footer putih */
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        footer a {
+            color: #e65100; /* Warna oranye tua untuk link */
+            text-decoration: none; /* Menghapus garis bawah */
+        }
+
+        footer a:hover {
+            color: #ff7043; /* Warna oranye lebih terang saat hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/logo.png" alt="Logo Pengadilan Negeri Amurang" class="logo">         
+        <h1 class="main-title">Sistem Informasi Putusan</h1>
+        <h2 class="main-title">Pengadilan Negeri Amurang (SIPUSPA)</h2>
+        <p class="subtitle">Silahkan Pilih Menu Layanan Berikut:</p>
+        
+        <!-- Tombol Status Putusan (Tamu) -->
+        <button class="status-button" onclick="window.location.href='/guest'">Status Putusan</button>
+        
+        <!-- Tombol Permohonan Salinan Putusan (Operator) -->
+        <button class="salinan-button" onclick="window.location.href='https://forms.gle/vgbUbJ2HjcrGkcnF7'">Permohonan Salinan Putusan</button>
+        
+        <!-- Tombol Pengelola -->
+        <button class="pengelola-button" onclick="window.location.href='/admin'">Pengelola</button>
+        
+        <!-- Tombol Panduan -->
+        <button class="panduan-button" onclick="window.location.href='https://www.youtube.com/'">Panduan</button>
+    </div>
+	
+	<!-- Footer -->
+    <footer>
+        <p>© Copyright Pengadilan Negeri Amurang. All Rights Reserved</p>
+        <p><a href="https://www.pn-amurang.go.id/" target="_blank">https://www.pn-amurang.go.id/</a></p>
+    </footer>
+</body>
+</html>

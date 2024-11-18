@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Pastikan jalur CSS benar -->
+</head>
+<body>
+    <div id="result" class="search-result">
+        <h2>Hasil Pencarian</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nomor Register</th>
+                    <th>Tanggal Putus</th>
+                    <% if (data.length > 0 && data[0][2]) { %> <!-- Jika ada data untuk penggugat -->
+                        <th>Penggugat</th>
+                    <% } %>
+                    <% if (data.length > 0 && data[0][3]) { %> <!-- Jika ada data untuk tergugat -->
+                        <th>Tergugat</th>
+                    <% } %>
+                    <th>Tanggal Relaas</th>
+                    <th>Status</th>
+                    <% if (users && users.role === 'administrator') { %> <!-- Hanya tampilkan untuk administrator -->
+                        <th>Surat Keterangan</th>
+                    <% } %>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data && data.length > 0) { %>
+                    <% data.forEach(function(row) { %>
+                        <tr>
+                            <td><%= row[0] %></td>
+                            <td><%= row[1] %></td>
+                            <% if (users && users.role === 'administrator') { %> <!-- Hanya tampilkan untuk administrator -->
+                                <td><%= row[2] %></td>
+                                <td><%= row[3] %></td>
+                            <% } %>
+                            <td><%= row[4] %></td>
+                            <td><%= row[5] %></td>
+                            <% if (users && users.role === 'administrator') { %> <!-- Hanya tampilkan untuk administrator -->
+                                <td><a href="/download/<%= encodeURIComponent(row[0]) %>">Unduh Keterangan</a></td>
+                            <% } %>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="<%= (user && user.role === 'administrator') ? 7 : 5 %>">Data tidak ditemukan</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

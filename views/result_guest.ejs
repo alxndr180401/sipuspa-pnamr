@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Pencarian - Tamu</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            color: #555;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button, .request-button {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .back-button {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .back-button:hover {
+            background-color: #388e3c;
+        }
+
+        .request-button {
+            background-color: #f1c40f;
+            color: white;
+        }
+
+        .request-button:hover {
+            background-color: #d4ac0d;
+        }
+
+        p {
+            text-align: center;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Pencarian</h1>
+        <% if (data.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nomor Register</th>
+                        <th>Tanggal Putus</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(item => { %>
+                        <tr>
+                            <td><%= item.nomorRegister %></td>
+                            <td><%= item.tanggalPutus %></td>
+                            <td><%= item.status %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>Data tidak ditemukan.</p>
+        <% } %>
+        <div class="button-container">
+            <a href="/guest" class="back-button">Kembali</a>           
+        </div>
+    </div>
+</body>
+</html>

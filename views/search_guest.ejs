@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Informasi Putusan</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link ke stylesheet Anda -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./images/background.jpg'); /* Pastikan path ini sesuai */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Mengisi seluruh tinggi viewport */
+        }
+
+        .container {
+            background-color: rgba(0, 128, 0, 0.7); /* Warna hijau transparan */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            background-color: #fff;
+            color: #006400;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+            color: #006400;
+        }
+
+        /* Tombol Kembali ke Beranda (lebih kecil) */
+        .back-button {
+            display: block;
+            margin: 20px auto; /* Posisikan tombol di tengah */
+            padding: 5px 10px; /* Memperkecil padding tombol */
+            font-size: 0.8em; /* Memperkecil ukuran font lebih kecil */
+            font-weight: bold;
+            background-color: red; /* Warna merah */
+            color: white; /* Tulisan putih */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Hilangkan underline */
+            cursor: pointer;
+            width: 120px; /* Memperpendek panjang kotak */
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: darkred; /* Warna merah gelap saat hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/logo.png" alt="Logo Pengadilan Negeri Amurang" class="logo"> <!-- Ganti dengan path logo yang sesuai -->
+        <h1 class="main-title">Pencarian Informasi Putusan</h1>
+
+        <!-- Menampilkan pesan error jika ada -->
+        <% if (messages.error) { %>
+            <div class="alert alert-error"><%= messages.error %></div>
+        <% } %>
+
+        <form id="search-form" action="/search" method="POST"> <!-- Ubah method di sini -->
+            <input type="text" name="query" placeholder="Masukkan nomor register..." class="search-input" required>
+            <button type="submit" class="search-button">Cari</button>
+        </form>
+
+        <!-- Tombol Kembali ke Beranda -->
+        <a href="/" class="back-button">Kembali</a> <!-- Tombol kembali -->
+    </div>
+</body>
+</html>

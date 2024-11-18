@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sistem Pelayanan Informasi Putusan</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link ke stylesheet Anda -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./images/background.jpg'); /* Pastikan path ini sesuai */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Mengisi seluruh tinggi viewport */
+            margin: 0; /* Menghilangkan margin default */
+        }
+
+        .container {
+             background-color: #333; /* Warna abu-abu gelap transparan */
+			padding: 40px 20px; /* Menambah padding untuk ruang lebih */
+			border-radius: 15px;
+			box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Mengubah efek bayangan */
+			width: 90%; /* Menentukan lebar responsif */
+			max-width: 400px; /* Memaksimalkan lebar kontainer */
+        }
+
+        .logo {
+            width: 100px; /* Mengatur ukuran logo */
+            margin-bottom: 20px; /* Menambah jarak di bawah logo */
+        }
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%; /* Memastikan input mengisi lebar kontainer */
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 12px;
+			font-size: 1.2em;
+			background-color: #28a745; /* Warna hijau gelap */
+			color: #fff; /* Tulisan putih */
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s, color 0.3s;
+			width: 100%; /* Mengatur lebar tombol sesuai kontainer */
+        }
+
+        button:hover {
+            background-color: #218838;
+            color: #fff;
+        }
+
+        .back-button {
+            display: inline-block;
+			margin-top: 20px;
+			padding: 12px;
+			background-color: #dc3545; /* Warna merah */
+			color: #fff; /* Tulisan putih */
+			text-decoration: none;
+			font-size: 1.2em;
+			border-radius: 5px;
+			width: 100%; /* Mengatur lebar tombol sesuai kontainer */
+			text-align: center; /* Memastikan teks di tengah */
+        }
+
+        .back-button:hover {           
+			background-color: #c82333; /* Warna merah lebih gelap saat hover */
+			text-decoration: none; /* Menghilangkan underline saat hover */
+        }
+		
+		/* Footer */
+        footer {
+            margin-top: 20px;
+            padding: 10px;            
+            width: 100%;
+            color: white; /* Warna teks footer putih */
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        footer a {
+            color: #e65100; /* Warna oranye tua untuk link */
+            text-decoration: none; /* Menghapus garis bawah */
+        }
+
+        footer a:hover {
+            color: #ff7043; /* Warna oranye lebih terang saat hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/logo.png" alt="Logo Pengadilan Negeri Amurang" class="logo"> <!-- Ganti dengan path logo yang sesuai -->
+        <h1 class="title">Sistem Pelayanan Informasi Putusan</h1>
+        <h2 class="subtitle">Login</h2>
+
+        <!-- Menampilkan pesan error jika ada -->
+        <% if (messages.error) { %>
+            <div class="alert alert-error"><%= messages.error %></div>
+        <% } %>
+
+        <form action="/login" method="POST" id="login-form">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <a href="/" class="back-button">Kembali ke Halaman Utama</a> <!-- Tautan untuk kembali -->
+    </div>
+	
+	<!-- Footer -->
+    <footer>
+        <p>© Copyright Pengadilan Negeri Amurang. All Rights Reserved</p>
+        <p><a href="https://www.pn-amurang.go.id/" target="_blank">https://www.pn-amurang.go.id/</a></p>
+    </footer>
+</body>
+</html>

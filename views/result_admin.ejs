@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian</title>
+    <link rel="stylesheet" href="/styles.css">
+	<style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            color: #555;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background-color: #388e3c;
+        }
+
+        p {
+            text-align: center;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/logo.png" alt="Logo Pengadilan" class="logo">
+        <h1 class="title">Hasil Pencarian</h1>
+
+        <% if (data && data.length > 0) { %>
+            <table>
+                <tr>
+                    <th>Nomor Register</th>
+                    <th>Tanggal Putus</th>
+                    <th>Penggugat</th>
+                    <th>Tergugat</th>
+                    <th>Tanggal Relaas</th>
+                    <th>Status</th>
+                    <th>Surat Keterangan</th>
+                </tr>
+                <% data.forEach(row => { %>
+                    <tr>
+                        <td><%= row.nomorRegister %></td>
+                        <td><%= row.tanggalPutus %></td>
+                        <td><%= row.penggugat %></td>
+                        <td><%= row.tergugat %></td>
+                        <td><%= row.tanggalRelaas %></td>
+                        <td><%= row.status %></td>
+                        <td>
+                            <a href="/download/<%= encodeURIComponent(row.nomorRegister) %>" class="print-button">Unduh Keterangan</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </table>
+        <% } else { %>
+            <p class="error-message">Data tidak ditemukan. Silakan coba nomor register lain.</p>
+        <% } %>
+
+        <div>
+            <a href="/utama" class="back-button">Kembali</a>
+        </div>
+    </div>
+</body>
+</html>
